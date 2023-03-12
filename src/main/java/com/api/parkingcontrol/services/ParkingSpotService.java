@@ -32,6 +32,10 @@ public class ParkingSpotService {
 		return parkingSpotRepository.findById(id);
 	}
 	
+	public void delete(ParkingSpotModel parkingSpotModel) {
+		parkingSpotRepository.delete(parkingSpotModel);
+	}
+	
 	// METODO PARA VALIDACOES
 	public boolean existsByLicensePlateCar(String licensePlateCar) {
 		return parkingSpotRepository.existsByLicensePlateCar(licensePlateCar);
