@@ -91,7 +91,7 @@ public class ParkingSpotController {
 		
 		var parkingSpotModel = new ParkingSpotModel();
 		BeanUtils.copyProperties(parkingSpotDto, parkingSpotModel);//PARA CONVERTER DE SPOTMODEL PARA MODEL
-		parkingSpotModel.setId(parkingSpotModelOptional.get().getId());
+		parkingSpotModel.setId(parkingSpotModelOptional.get().getId());//PARA SETAR APENAS O ID 
 		parkingSpotModel.setRegistrationData(parkingSpotModelOptional.get().getRegistrationData());
 		
 		return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.save(parkingSpotModel));
