@@ -2,6 +2,8 @@
 
 package com.api.parkingcontrol.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +18,20 @@ public class ParkingSpotService {
 	
 	public ParkingSpotModel save(ParkingSpotModel parkingSpotModel) {
 		return parkingSpotRepository.save(parkingSpotModel);
+	}
+	
+	public List<ParkingSpotModel> findAll(){
+		return parkingSpotRepository.findAll();
+	}
+	
+	// METODO PARA VALIDACOES
+	public boolean existsByLicensePlateCar(String licensePlateCar) {
+		return parkingSpotRepository.existsByLicensePlateCar(licensePlateCar);
+	}
+	public boolean existsByParkingSpotNumber(String parkingSpotNumber) {
+		return parkingSpotRepository.existsByParkingSpotNumber(parkingSpotNumber);
+	}
+	public boolean existsByApartmentAndBlock(String apartment, String block) {
+		return parkingSpotRepository.existsByApartmentAndBlock(apartment, block);
 	}
 }
